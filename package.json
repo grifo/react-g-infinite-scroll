@@ -1,0 +1,64 @@
+{
+  "name": "react-g-infinite-scroll",
+  "version": "0.0.1",
+  "description": "Infinite scroll hook and HOC",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "lint": "eslint src",
+    "start": "yarn storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grifo/react-g-infinite-scroll.git"
+  },
+  "keywords": [
+    "react",
+    "infinite-scroll",
+    "infinite-scrolling"
+  ],
+  "author": "Renatho De Carli Rosa <renatho@gri.fo> (https://github.com/renatho)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grifo/react-g-infinite-scroll/issues"
+  },
+  "homepage": "https://github.com/grifo/react-g-infinite-scroll#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "@testing-library/react": "^8.0.5",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-config-standard-react": "^8.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.*",
+    "react-dom": "^16.8.*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test && yarn run lint"
+    }
+  }
+}

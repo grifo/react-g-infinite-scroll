@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-react"],
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.spec.js"],
+      "env": {
+        "jest": true
+      },
+      "globals": {
+        "React": true
+      }
+    },
+    {
+      "files": ["**/*.stories.js", "**/*.spec.js"],
+      "rules": {
+        "react/jsx-filename-extension": ["off"],
+        "react/prop-types": ["off"]
+      }
+    }
+  ]
+}
