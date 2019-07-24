@@ -14,14 +14,17 @@ export const reducer = (state, action) => {
         page: action.page
       }
     case 'SUCCESS':
+      const users = action.payload.page === 1 ? [
+        ...action.payload.data
+      ] : [
+        ...state.users,
+        ...action.payload.data
+      ]
       return {
         ...state,
         isFetching: false,
         totalPages: action.payload.total_pages,
-        users: [
-          ...state.users,
-          ...action.payload.data
-        ]
+        users
       }
     default:
       throw new Error()
