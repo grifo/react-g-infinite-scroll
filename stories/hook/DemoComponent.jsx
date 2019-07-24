@@ -16,6 +16,7 @@ const DemoComponent = ({ expectRef, offset, log }) => {
     */
   const fetchMore = useCallback(() => {
     log(page)
+    // In a real case, you should cancel the current fetch on unmount to prevent errors
     fetchUsers(page + 1, dispatch)
   }, [page, log])
 
