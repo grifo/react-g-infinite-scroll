@@ -1,7 +1,7 @@
 {
   "name": "react-g-infinite-scroll",
   "version": "0.0.1",
-  "description": "Infinite scroll component, hook or HOC",
+  "description": "This package is an infinite scroll: component, hook or HOC. You choose!",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest",
