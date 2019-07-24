@@ -1,5 +1,5 @@
 # react-g-infinite-scroll
-Infinite scroll hook and HOC
+Infinite scroll component, hook or HOC
 
 If you will add in a custom DOM element, you should pass the `expectRef` and receive it from hook.
 

@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions'
 import DemoComponent from './DemoComponent'
 
 storiesOf('Infinite Scroll', module)
-  .add('useInfiniteScroll hook', () => (
+  .add('InfiniteScroll component', () => (
     <DemoComponent
       expectRef={boolean('Expect ref', false)}
       offset={number('Offset (px)', 20)}
