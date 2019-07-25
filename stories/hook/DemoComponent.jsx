@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import UsersList from '../_utils/UsersList'
 import { reducer, initialState } from '../_utils/reducer'
 import { fetchUsers } from '../_utils/fetchers'
-import useInfiniteScroll from '../../src/infinite-scroll-hook/useInfiniteScroll'
+import { useInfiniteScroll } from '../../src'
 
 const DemoComponent = ({ expectRef, offset, log }) => {
   const [state, dispatch] = useReducer(reducer, initialState)

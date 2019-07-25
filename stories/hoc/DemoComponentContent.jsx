@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 
 import UsersList from '../_utils/UsersList'
-import withInfiniteScroll from '../../src/infinite-scroll-hoc/withInfiniteScroll'
+import { withInfiniteScroll } from '../../src'
 
 const DemoComponentContent = forwardRef(({ users }, ref) => {
   const props = {
