@@ -2,6 +2,9 @@
 
 This package is an infinite scroll: component, hook or HOC. You choose!
 
+[![Build Status](https://travis-ci.org/grifo/react-g-infinite-scroll.svg?branch=master)](https://travis-ci.org/grifo/react-g-infinite-scroll)
+[![Coverage Status](https://coveralls.io/repos/github/grifo/react-g-infinite-scroll/badge.svg?branch=master)](https://coveralls.io/github/grifo/react-g-infinite-scroll?branch=master)
+
 ## Installation:
 
 ```
