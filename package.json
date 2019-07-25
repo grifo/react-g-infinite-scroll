@@ -8,7 +8,11 @@
     "lint": "eslint src",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build": "babel src -d build --ignore \"src/**/*.spec.js\"",
+    "build:copy": "cp package.json README.md build",
+    "build:clear": "rm -rf build",
+    "deploy": "yarn build-storybook && yarn build && yarn build:copy && cd build && npm publish && cd - && yarn build:clear"
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,7 @@
   },
   "homepage": "https://github.com/grifo/react-g-infinite-scroll#readme",
   "devDependencies": {
+    "@babel/cli": "^7.5.4",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
