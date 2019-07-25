@@ -14,6 +14,10 @@ or
 npm install --save react-g-infinite-scroll
 ```
 
+## Live demo:
+
+Soon
+
 ## How to:
 
 Options:
@@ -35,6 +39,8 @@ https://overreacted.io/a-complete-guide-to-useeffect/#but-i-cant-put-this-functi
 You have three ways to use the infinite scroll package: Hook, Component or HOC.
 
 ### Hook
+
+**Code sample:** https://github.com/grifo/react-g-infinite-scroll/tree/develop/stories/hook
 
 How to use the hook with scroll in the window:
 
@@ -76,8 +82,136 @@ If you want to use the scroll in a custom element, you should pass the `expectRe
 
 ### Component
 
-Notice: In the backstage it uses the hook
+**Code sample:** https://github.com/grifo/react-g-infinite-scroll/tree/develop/stories/component
+
+**Notice:** In the backstage it uses the hook
+
+How to use the hook with scroll in the window:
+
+```js
+import React, { useCallback } from 'react'
+import { InfiniteScroll } from 'react-g-infinite-scroll'
+
+const MyComponent = ({ isFetching }) => {
+  const fetchMore = useCallback(() => {
+    /* YOUR_FETCH_CODE_HERE */
+  }, [/* YOUR_FETCH_DEPS_HERE */])
+
+  return (
+    <InfiniteScroll
+      fetchMore={fetchMore}
+      ignoreScroll={isFetching}
+      offset={20}
+    >
+      {/* CONTENT_HERE */}
+    </InfiniteScroll>
+  )
+}
+```
+
+If you want to use the scroll in a custom element, you should pass the prop `expectRef` as `true` to the component, then the children will be a render prop with the `ref` to add to your element:
+
+```js
+import React, { useCallback } from 'react'
+import { InfiniteScroll } from 'react-g-infinite-scroll'
+
+const MyComponent = ({ isFetching }) => {
+  const fetchMore = useCallback(() => {
+    /* YOUR_FETCH_CODE_HERE */
+  }, [/* YOUR_FETCH_DEPS_HERE */])
+
+  return (
+    <InfiniteScroll
+      expectRef
+      fetchMore={fetchMore}
+      ignoreScroll={isFetching}
+      offset={20}
+    >
+      {ref => (
+        <div ref={ref} className={/* SCROLL_STYLES */}>
+          {/* CONTENT_HERE */}
+        </div>
+      )}
+    </InfiniteScroll>
+  )
+}
+```
 
 ### HOC
 
-Notice: In the backstage it uses the hook
+**Code sample:** https://github.com/grifo/react-g-infinite-scroll/tree/develop/stories/hoc
+
+**Notice:** In the backstage it uses the hook
+
+How to use the hook with scroll in the window:
+
+```js
+import React from 'react'
+import { withInfiniteScroll } from 'react-g-infinite-scroll'
+
+const MyComponent = ({ myProps }) => (
+  /* CONTENT_HERE */
+)
+
+export default withInfiniteScroll(MyComponent)
+```
+
+```js
+import React, { useCallback } from 'react'
+import MyComponent from 'MyComponent'
+
+const MyComponentWrapper = ({ isFetching }) => {
+  const fetchMore = useCallback(() => {
+    /* YOUR_FETCH_CODE_HERE */
+  }, [/* YOUR_FETCH_DEPS_HERE */])
+
+  return (
+    <MyComponent
+      infiniteScrollProps={{
+        fetchMore,
+        ignoreScroll: isFetching,
+        offset: 20
+      }}
+      /* MY_PROPS_TO_MY_COMPONENT_HERE */
+    />
+  )
+}
+```
+
+If you want to use the scroll in a custom element, you should pass the prop `expectRef` as `true` to the enhanced component. And your component will receive the `ref` with the `forwardRef`:
+
+```js
+import React, { forwardRef } from 'react'
+import { withInfiniteScroll } from 'react-g-infinite-scroll'
+
+const MyComponent = forwardRef(({ myProps }, ref) => (
+  <div ref={ref} className={/* SCROLL_STYLES */}>
+    {/* CONTENT_HERE */}
+  </div>
+))
+
+export default withInfiniteScroll(MyComponent)
+```
+
+```js
+import React, { useCallback } from 'react'
+import MyComponent from 'MyComponent'
+
+const MyComponentWrapper = ({ isFetching }) => {
+  const fetchMore = useCallback(() => {
+    /* YOUR_FETCH_CODE_HERE */
+  }, [/* YOUR_FETCH_DEPS_HERE */])
+
+  return (
+    <MyComponent
+      infiniteScrollProps={{
+        expectRef: true,
+        fetchMore,
+        ignoreScroll: isFetching,
+        offset: 20
+      }}
+      /* MY_PROPS_TO_MY_COMPONENT_HERE */
+    />
+  )
+}
+```
