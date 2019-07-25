@@ -16,7 +16,7 @@ npm install --save react-g-infinite-scroll
 
 ## Live demo:
 
-Soon
+http://gri.fo/react-g-infinite-scroll/storybook-static
 
 ## How to:
 
